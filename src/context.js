@@ -5,7 +5,7 @@ export const API_ENDPOINT = `https://www.omdbapi.com/?apikey=${process.env.REACT
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-  const [query, setQuery] = useState('avengers');
+  const [query, setQuery] = useState('marvel');
   const { isLoading, error, data: movies } = useFetch(`&s=${query}`);
 
   return (
@@ -14,7 +14,7 @@ const AppProvider = ({ children }) => {
     </AppContext.Provider>
   );
 };
-// make sure use
+
 export const useGlobalContext = () => {
   return useContext(AppContext);
 };
